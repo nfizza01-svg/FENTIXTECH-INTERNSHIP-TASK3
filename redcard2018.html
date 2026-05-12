@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Card 2018 – China Digital Football Awards</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #fff;
+  }
+
+  /* ── SHARED LOGO ── */
+  .logo {
+    width: 62px;
+    height: 62px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .logo img { width: 62px; height: 62px; object-fit: contain; }
+
+  /* ══════════════════════════════════════
+     PAGE 1 – SUBMISSION
+  ══════════════════════════════════════ */
+  #page1 {
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  .p1-topbar {
+    padding: 14px 24px;
+    background: #fff;
+  }
+
+  .p1-body {
+    background: #8b1a1a;
+    display: flex;
+    min-height: calc(100vh - 90px);
+  }
+
+  /* left panel */
+  .p1-left {
+    flex: 0 0 42%;
+    padding: 60px 40px 60px 52px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .p1-left h1 {
+    font-size: 62px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+  }
+  .p1-left p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #e8c0c0;
+    max-width: 300px;
+    margin-bottom: 28px;
+  }
+  .p1-left .deadline {
+    font-size: 15px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.4;
+  }
+
+  /* right panel */
+  .p1-right {
+    flex: 1;
+    padding: 40px 48px 60px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .p1-right input[type="text"],
+  .p1-right input[type="email"] {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    padding: 10px 14px;
+    font-size: 13px;
+    outline: none;
+  }
+  .p1-right input::placeholder { color: rgba(255,255,255,0.65); }
+
+  .award-section { margin-top: 6px; }
+  .award-section h3 {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 2px;
+  }
+  .award-section .sub-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 14px;
+  }
+
+  .award-row { margin-bottom: 14px; }
+  .award-row label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 6px;
+    cursor: pointer;
+  }
+  .award-row label input[type="checkbox"] {
+    width: 14px; height: 14px;
+    accent-color: #fff;
+    cursor: pointer;
+  }
+  .award-row textarea {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: #fff;
+    padding: 10px 12px;
+    font-size: 12px;
+    resize: vertical;
+    min-height: 64px;
+    outline: none;
+  }
+  .award-row textarea::placeholder { color: rgba(255,255,255,0.55); }
+
+  .submit-btn {
+    margin-top: 20px;
+    background: #fff;
+    color: #1a1a1a;
+    border: none;
+    padding: 16px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+  }
+  .submit-btn:hover { background: #f0e8e8; }
+
+  /* decorative dots */
+  .dot {
+    width: 10px; height: 10px;
+    background: rgba(255,255,255,0.3);
+    display: inline-block;
+  }
+
+
+  /* ══════════════════════════════════════
+     PAGE 2 – RESULTS
+  ══════════════════════════════════════ */
+  #page2 {
+    background: #fff;
+    max-width: 480px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+
+  .p2-header {
+    background: #8b1a1a;
+    padding: 20px 24px 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .p2-header::after {
+    content: '';
+    position: absolute;
+    bottom: -22px; right: -22px;
+    width: 80px; height: 80px;
+    background: rgba(255,255,255,0.08);
+    transform: rotate(45deg);
+  }
+  .p2-header .logo { margin-bottom: 14px; }
+  .p2-header h1 {
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-bottom: 2px;
+  }
+  .p2-header h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: rgba(255,255,255,0.9);
+  }
+  .p2-header p {
+    font-size: 12px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.85);
+    max-width: 420px;
+  }
+
+  .p2-content {
+    padding: 10px 0;
+  }
+
+  .category-section {
+    padding: 24px 24px 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .category-section:last-child { border-bottom: none; }
+
+  .cat-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .cat-title .triangle {
+    width: 0; height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 13px solid #8b1a1a;
+    flex-shrink: 0;
+  }
+  .cat-title h3 {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #111;
+  }
+
+  .clubs-grid {
+    display: flex;
+    gap: 14px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .club-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+  }
+
+  /* BVB badge */
+  .bvb-badge {
+    width: 64px;
+    height: 64px;
+    position: relative;
+  }
+  .bvb-badge svg {
+    width: 64px;
+    height: 64px;
+  }
+
+  .club-item .club-name {
+    text-align: center;
+    line-height: 1.3;
+  }
+  .club-item .club-name .top {
+    font-size: 11px;
+    color: #8b1a1a;
+    font-style: italic;
+    display: block;
+  }
+  .club-item .club-name .bot {
+    font-size: 11px;
+    font-weight: 700;
+    color: #111;
+    display: block;
+  }
+
+  .p2-footer {
+    background: #8b1a1a;
+    padding: 28px 24px;
+    color: #fff;
+  }
+  .p2-footer p {
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     PAGE 1 – SUBMISSION FORM
+══════════════════════════════════════ -->
+<section id="page1">
+  <div class="p1-topbar">
+    <!-- Logo -->
+    <div class="logo"><img src="logo.png" alt="Red Card Logo"></div>
+  </div>
+
+  <div class="p1-body">
+    <!-- LEFT -->
+    <div class="p1-left">
+      <h1>Submission</h1>
+      <p>All details of submissions will be kept strictly private and confidential by Mailman and will not be used for any purpose other than judging Red Card 2018 winners.</p>
+      <p class="deadline">Applications will close on the<br>15th December 2017</p>
+      <br>
+      <span class="dot" style="margin-top:auto"></span>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="p1-right">
+      <input type="text"  placeholder="Name">
+      <input type="email" placeholder="Email Address">
+      <input type="text"  placeholder="Organisation">
+
+      <div class="award-section">
+        <h3>Which Award</h3>
+        <div class="sub-label">(Please tick and provide details for all of the awards you would like to be nominated for)</div>
+
+        <!-- Best Livestream -->
+        <div class="award-row">
+          <label><input type="checkbox" checked> Best Livestream <span class="dot" style="margin-left:auto"></span></label>
+          <textarea placeholder="Description &amp; Results (max. 150 words)"></textarea>
+        </div>
+
+        <!-- Best Tour Campaign -->
+        <div class="award-row">
+          <label><input type="checkbox"> Best Tour Campaign <span class="dot" style="margin-left:auto"></span></label>
+          <textarea placeholder="Description &amp; Results (max. 150 words)"></textarea>
+        </div>
+
+        <!-- Best Sponsor Activation -->
+        <div class="award-row">
+          <label><input type="checkbox"> Best Sponsor Activation <span class="dot" style="margin-left:auto"></span></label>
+          <textarea placeholder="Description &amp; Results (max. 150 words)"></textarea>
+        </div>
+
+        <!-- Best Use of Technology -->
+        <div class="award-row">
+          <label><input type="checkbox"> Best Use of Technology <span class="dot" style="margin-left:auto"></span></label>
+          <textarea placeholder="Description &amp; Results (max. 150 words)"></textarea>
+        </div>
+
+        <!-- Best Online Campaign -->
+        <div class="award-row">
+          <label><input type="checkbox"> Best Online Campaign <span class="dot" style="margin-left:auto"></span></label>
+          <textarea placeholder="Description &amp; Results (max. 150 words)"></textarea>
+        </div>
+      </div>
+
+      <button class="submit-btn">✓&nbsp; Submission Successful</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 2 – RESULTS / WINNERS
+══════════════════════════════════════ -->
+<section id="page2">
+  <!-- Header -->
+  <div class="p2-header">
+    <div class="logo"><img src="logo.png" alt="Red Card Logo"></div>
+    <h1>RED CARD 2018</h1>
+    <h2>China Digital Football Awards</h2>
+    <p>The Red Card is globally recognised as the leading annual report to assess the most influential European football clubs, leagues and players online in China. Now in its 7th year, Red Card 2018 has been reimagined to include 5 additional awards to recognise the many areas of digital performance in China, thereby taking the Red Card report to a whole new level. Due to the nature and variety of these new categories, the winners will be chosen by a panel of 6 industry experts, rather than by the traditional metrics used to assess the three headline awards.</p>
+    <br>
+    <p>This report aims to educate teams and organisations on how to improve their China digital strategy, what today's Chinese fan wants and what works online in China.</p>
+  </div>
+
+  <!-- Categories -->
+  <div class="p2-content">
+
+    <!-- repeat 5 category sections -->
+    <div class="category-section">
+      <div class="cat-title"><span class="triangle"></span><h3>Best Clubs</h3></div>
+      <div class="clubs-grid">
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="cat-title"><span class="triangle"></span><h3>Best Clubs</h3></div>
+      <div class="clubs-grid">
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="cat-title"><span class="triangle"></span><h3>Best Clubs</h3></div>
+      <div class="clubs-grid">
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="cat-title"><span class="triangle"></span><h3>Best Clubs</h3></div>
+      <div class="clubs-grid">
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+      </div>
+    </div>
+
+    <div class="category-section">
+      <div class="cat-title"><span class="triangle"></span><h3>Best Clubs</h3></div>
+      <div class="clubs-grid">
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+        <div class="club-item"><div class="bvb-badge"><img src="bvb.png" alt="BVB" style="width:64px;height:64px;object-fit:contain;"></div><div class="club-name"><span class="top">Lorem ipsum</span><span class="bot">Lorem</span></div></div>
+      </div>
+    </div>
+
+  </div><!-- /p2-content -->
+
+  <!-- Footer -->
+  <div class="p2-footer">
+    <p>Red Card 2019 Winners<br>and Report to be launched<br>on 24th January 2019.</p>
+  </div>
+</section>
+
+</body>
+</html>

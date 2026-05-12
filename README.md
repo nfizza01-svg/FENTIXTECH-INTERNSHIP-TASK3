@@ -31,23 +31,13 @@ The task involved replicating two high-fidelity design screens:
 
 🔗 Live Preview
 Check out the live implementation here:
-👉 Live Demo
+👉 https://nfizza01-svg.github.io/FENTIXTECH-INTERNSHIP-TASK3/redcard2018.html
 
 
 ✍️ Author
 Fizza Nadeem Khan Intern at Tech Hierarchy & FentixTech.
 
 Actively learning Cybersecurity, Ethical Hacking, and Web Developer.
-
-
-
-
-
-
-
-
-
-
 
 
 
